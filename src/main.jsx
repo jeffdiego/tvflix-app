@@ -5,15 +5,21 @@ import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Home } from "./pages/home.jsx";
 import { MovieDetail } from "./pages/MovieDetail.jsx";
-
+import { Layout } from "./pages/Layout.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
-  },
-    {
-    path: "/filme/:id",
-    element: <MovieDetail />,
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/filme/:id",
+        element: <MovieDetail />,
+      },
+    ],
   },
 ]);
 
